@@ -14,7 +14,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    title: CARD_DEFAULTS.title,
-    description: CARD_DEFAULTS.description,
+    title: CARD_DEFAULTS,
+    description: CARD_DEFAULTS,
   },
 };
