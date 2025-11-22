@@ -11,7 +11,7 @@ const CardContainer = () => {
           <h2 className="text-[56px] max-lg:text-5xl max-md:text-4xl max-sm:text-3xl max-sm:pt-4 font-bold text-center leading-[100%] font-fk-screamer uppercase mb-0">
             Inizia a vendere
           </h2>
-          <p className=" text-center text-black mb-8 font-inter">
+          <p className=" text-center text-base text-black mb-8 font-inter">
             Un set di prodotti scelti per darti la spinta giusta da subito.
           </p>
           <div className="relative pb-5">
