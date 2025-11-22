@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "SHARIN",
     description: "Un set di prodotti scelti per darti la spinta giusta da subito.",
-    url : "https://sharin-app.vercel.app/" ,
+    url : "https://sharin-app.vercel.app/",
     images: [
       {
         url: "https://sharin-app.vercel.app/meta-image.png",
