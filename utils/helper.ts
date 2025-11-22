@@ -35,4 +35,40 @@ export const CARD_DEFAULTS = [
     discount: "Guadagna € 22,00",
     price: "€ 95,95",
   },
+  {
+    imgSrc: "/images/png/clock.png",
+    title: "Newgate Wideboy Alarm Clock",
+    discount: "Guadagna € 8,00",
+    price: "€ 56,95",
+  },
+  {
+    imgSrc: "/images/png/made-crate-mini.png",
+    title: "Made Crate Mini",
+    discount: "Guadagna € 12,00",
+    price: "€ 8,95",
+  },
+  {
+    imgSrc: "/images/png/cusion-cover.png",
+    title: "NouNou Jae Cusion Cover",
+    discount: "Guadagna € 8,00",
+    price: "€ 40,95",
+  },
+  {
+    imgSrc: "/images/png/doiy-bobby-vase.png",
+    title: "DOIY Bobby Vase",
+    discount: "Guadagna € 8,00",
+    price: "€ 47,95",
+  },
+  {
+    imgSrc: "/images/png/curvies-socks.png",
+    title: "Eat My Socks Curvies Socks",
+    discount: "Guadagna € 10,00",
+    price: "€ 15,95",
+  },
+  {
+    imgSrc: "/images/png/habichl-burger.png",
+    title: "Habichl Burger Coasters Set",
+    discount: "Guadagna € 22,00",
+    price: "€ 95,95",
+  },
 ];

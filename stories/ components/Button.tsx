@@ -9,7 +9,7 @@ const Button: React.FC<ButtonProps> = ({
   text,
   buttonClassName = "",
   variant = "primary",
-  buttonStyle = "py-3 px-4 w-full font-black rounded-xl  text-center cursor-pointer",
+  buttonStyle = "py-3 px-4 w-full font-black rounded-xl  text-center cursor-pointer hover:bg-black/10 transition-all duration-300",
 }) => {
   const variantStyle =
     variant === "primary" ? "bg-[#F1F1F1]" : "bg-transparent";

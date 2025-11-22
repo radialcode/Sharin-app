@@ -20,9 +20,9 @@ export interface CardProps {
 
 const Card: React.FC<CardProps> = ({
   card,
-  className = "rounded-lg flex flex-col max-sm:justify-center max-lg:items-center",
-  subCardClassName = "rounded-2xl border border-solid border-[#D9D9D9] max-w-[189px] size-[189px] max-sm:size-[unset] relative flex justify-center items-center bg-[#F1F1F1]",
-  discountClassName = `absolute top-2 left-2 bg-white text-black flex gap-1.5 text-xs font-semibold px-2 py-1 rounded  ${Number(
+  className = "rounded-lg flex flex-col max-sm:justify-center max-lg:items-center group",
+  subCardClassName = "rounded-2xl border border-solid border-[#D9D9D9] max-w-[189px] size-[189px] max-sm:size-[unset] relative flex justify-center items-center bg-[#F1F1F1] group-hover:shadow-[0_4px_10px_rgba(0,0,0,0.15)] transition-shadow duration-300",
+  discountClassName = `absolute top-2 left-2 bg-white text-black flex gap-1.5 text-xs font-semibold px-2 py-1 rounded-full  ${Number(
     card.discount
       .replace("Guadagna €", "")
       .replace(/\./g, "")
@@ -32,9 +32,9 @@ const Card: React.FC<CardProps> = ({
     ? "!bg-[#FFE943]"
     : ""
   }`,
-  titleClassName = "text-lg font-black text-black  mt-2 max-lg:text-center",
+  titleClassName = "text-lg font-black text-black mt-2 !mb-0 max-lg:text-center leading-[100%]",
   imgClassName = "w-full mx-auto object-center h-auto object-contain rounded-2xl",
-  priceClassName = "text-base font-medium text-gray-700 mt-1 ",
+  priceClassName = "text-base font-medium text-[#767676] mt-1 ",
 }) => {
   return (
     <>
