@@ -34,7 +34,7 @@ const Card: React.FC<CardProps> = ({
   }`,
   titleClassName = "text-lg font-black text-black mt-2 !mb-0 max-lg:text-center leading-[100%]",
   imgClassName = "w-full mx-auto object-center h-auto object-contain rounded-2xl",
-  priceClassName = "text-sm font-medium text-[#767676] mt-1 ",
+  priceClassName = "text-sm font-medium text-[#767676] mt-1",
 }) => {
   return (
     <>
