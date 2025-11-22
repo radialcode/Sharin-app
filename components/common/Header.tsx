@@ -1,12 +1,13 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const Header = () => {
   return (
     <div className="p-5 flex justify-between items-center bg-white">
       <Link href="/">
-        <img src="/images/svg/logo.svg" alt="Logo" />
+        <Image width={164} height={32} src="/images/svg/logo.svg" alt="Logo" />
       </Link>
-      <img
+      <Image
         className="size-10 rounded-full"
         src="/images/png/profile-image.jpg"
         width={40}

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 export interface CardData {
@@ -66,7 +67,7 @@ const Card: React.FC<CardProps> = ({
             </span>{" "}
             {card.discount}
           </span>
-          <img src={card.imgSrc} alt={card.title} className={imgClassName} />
+          <Image width={189} height={189} src={card.imgSrc} alt={card.title} className={imgClassName} />
         </div>
         <h3 className={titleClassName}>{card.title}</h3>
         <p className={priceClassName}>{card.price}</p>
