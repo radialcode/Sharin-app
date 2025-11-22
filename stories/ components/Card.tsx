@@ -21,7 +21,7 @@ export interface CardProps {
 const Card: React.FC<CardProps> = ({
   card,
   className = "rounded-lg flex flex-col max-sm:justify-center max-lg:items-center group",
-  subCardClassName = "rounded-2xl border border-solid border-[#D9D9D9] max-w-[189px] size-[189px] max-sm:size-[unset] relative flex justify-center items-center bg-[#F1F1F1] group-hover:shadow-[0_4px_10px_rgba(0,0,0,0.15)] transition-shadow duration-300",
+  subCardClassName = "rounded-2xl border border-solid border-[#D9D9D9] max-w-[189px] size-[189px] max-sm:size-[unset] relative flex justify-center items-center bg-[#F1F1F1] group-hover:shadow-[0_1px_2px_rgba(0,0,0,0.15)] transition-shadow duration-300",
   discountClassName = `absolute top-2 left-2 bg-white text-black flex items-center gap-1.5 text-sm font-semibold px-2 py-1 rounded-full  ${Number(
     card.discount
       .replace("Guadagna €", "")
