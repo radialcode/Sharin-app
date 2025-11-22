@@ -1,6 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body {
+  font-family: "Inter", sans-serif !important;
+}
+
+@font-face {
+  font-family: 'FK Screamer';
+  src: url('/font/FKScreamerTrial-Bold-BF6571330a76e9b.otf');
+  font-weight: bold;
+}
+
 @import "tailwindcss";
 
-/* @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap'); */
+
+.font-fk-screamer {
+  font-family: 'FK Screamer';
+}
 .font-inter {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif !important;
 }

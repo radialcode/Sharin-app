@@ -1,5 +1,6 @@
+import { CARD_DEFAULTS } from "@/app/page";
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import Card, { CARD_DEFAULTS } from "./Card";
+import Card from "./Card";
 
 const meta = {
   title: "Components/Card",
@@ -14,7 +15,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    title: CARD_DEFAULTS,
-    description: CARD_DEFAULTS,
+    card: CARD_DEFAULTS[1]
   },
 };
+  
