@@ -14,10 +14,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "SHARIN",
-  description: "Un set di prodotti scelti per darti la spinta giusta da subito.",
+  description: "Un set di prodotti scelti per darti la spinta giusta da subitos",
   openGraph: {
     title: "SHARIN",
-    description: "Un set di prodotti scelti per darti la spinta giusta da subito.",
+    description: "Un set di prodotti scelti per darti la spinta giusta da subito",
     url : "https://sharin-app.vercel.app/",
     images: [
       {
