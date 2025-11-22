@@ -3,7 +3,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <>
-      <div className="flex items-center justify-center gap-4 py-4 flex-wrap">
+      <div className="flex items-center justify-center gap-4 py-4 max-sm:px-5 flex-wrap">
         <Link href="/" className="text-[#767676] text-sm ">Termini e condizioni</Link>
         <Link className="text-[#767676] text-sm " href="/">
           Privacy Policy
