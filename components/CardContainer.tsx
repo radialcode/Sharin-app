@@ -17,7 +17,7 @@ const CardContainer = () => {
           <div className="relative pb-5">
             <div className="h-[500px] overflow-hidden ">
               <div className="overflow-y-auto overflow-x-hidden h-full">
-                <div className="grid grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1 gap-4">
+                <div className="grid grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1 gap-4 gap-y-6">
                   {CARD_DEFAULTS.map((card, index) => (
                     <Card key={index} card={card} />
                   ))}
