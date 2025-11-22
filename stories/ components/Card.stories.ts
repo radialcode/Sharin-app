@@ -2,6 +2,7 @@ import { CARD_DEFAULTS } from "@/app/page";
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import Card from "./Card";
 
+
 const meta = {
   title: "Components/Card",
   component: Card,
