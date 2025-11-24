@@ -1,12 +1,52 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import Button from "./Button";
 
-
 const meta = {
   title: "Components/Button",
   component: Button,
   parameters: {
     layout: "centered",
+  },
+  argTypes: {
+    // -------------- UI Controls --------------
+    appearance: {
+      control: "select",
+      options: ["Subdued", "Filled", "Outline"],
+    },
+    size: {
+      control: "select",
+      options: ["SM", "MD", "LG", "XL"],
+    },
+    status: {
+      control: "select",
+      options: ["Default", "Hover", "Pressed", "Focus"],
+    },
+    leftIcon: { control: "boolean" },
+    rightIcon: { control: "boolean" },
+
+    // -------------- Label --------------
+    text: {
+      control: "text",
+    },
+
+    // -------------- Variable Mode --------------
+    colorMode: {
+      control: "select",
+      options: ["Auto (Light)", "Auto (Dark)", "Custom"],
+    },
+    radius: {
+      control: "select",
+      options: ["Auto (Default)", "Rounded", "Square"],
+    },
+    typography: {
+      control: "select",
+      options: ["Auto (Desktop)", "Mobile", "Large Display"],
+    },
+
+    // Background color
+    backgroundColor: {
+      control: "color",
+    },
   },
 } satisfies Meta<typeof Button>;
 
@@ -16,14 +56,14 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     text: "Salta",
-    variant: "primary",
+    appearance: "Subdued",
+    size: "LG",
+    status: "Default",
+    leftIcon: false,
+    rightIcon: false,
+    backgroundColor: "",
+    colorMode: "Auto (Light)",
+    radius: "Auto (Default)",
+    typography: "Auto (Desktop)",
   },
 };
-
-export const Secondary: Story = {
-  args: {
-    text: "Indietro",
-    variant: "secondary",
-  },
-};
-  
