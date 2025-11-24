@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import Button from "./Button";
+import { TEXT_TYPE } from "@/utils/constant";
 
 const meta = {
   title: "Components/Button",
@@ -31,8 +32,8 @@ const meta = {
 
     // -------------- Variable Mode --------------
     colorMode: {
-      control: "select",
-      options: ["Auto (Light)", "Auto (Dark)", "Custom"],
+      control: "inline-radio",
+      options: [TEXT_TYPE.LIGHT, TEXT_TYPE.DARK],
     },
     radius: {
       control: "select",
@@ -62,7 +63,7 @@ export const Primary: Story = {
     leftIcon: false,
     rightIcon: false,
     backgroundColor: "",
-    colorMode: "Auto (Light)",
+    colorMode: TEXT_TYPE.LIGHT,
     radius: "Auto (Default)",
     typography: "Auto (Desktop)",
   },

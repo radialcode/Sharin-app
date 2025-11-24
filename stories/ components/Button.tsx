@@ -1,3 +1,5 @@
+import { TEXT_TYPE } from "@/utils/constant";
+
 export interface ButtonProps {
   text?: string;
   appearance?: "Subdued" | "Filled" | "Outline";
@@ -6,11 +8,30 @@ export interface ButtonProps {
   leftIcon?: boolean;
   rightIcon?: boolean;
   backgroundColor?: string;
-  colorMode?: string;
   radius?: string;
   typography?: string;
+  colorMode?: TEXT_TYPE.LIGHT | TEXT_TYPE.DARK
 }
+const getAppearanceClasses = (appearance: string, colorMode: string) => {
+  const isDark = colorMode === TEXT_TYPE.DARK;
 
+  switch (appearance) {
+    case "Filled":
+      return isDark
+        ? "bg-white text-black"    
+        : "bg-black text-white";
+
+    case "Outline":
+      return isDark
+        ? "border border-white text-white" 
+        : "border border-black text-black";
+
+    default: 
+      return isDark
+        ? "bg-gray-700 text-white"  
+        : "bg-gray-200 text-black"; 
+  }
+};
 const Button: React.FC<ButtonProps> = ({
   text = "Button",
   appearance = "Subdued",
@@ -21,7 +42,7 @@ const Button: React.FC<ButtonProps> = ({
   rightIcon = false,
   backgroundColor,
   typography,
-  colorMode
+  colorMode=TEXT_TYPE.LIGHT
 }) => {
   const sizeClasses =
     size === "SM"
@@ -32,12 +53,7 @@ const Button: React.FC<ButtonProps> = ({
           ? "px-6 py-4 text-xl"
           : "px-4 py-2 text-base";
 
-  const appearanceClasses =
-    appearance === "Filled"
-      ? "bg-black text-white"
-      : appearance === "Outline"
-        ? "border border-black text-black"
-        : "bg-gray-200 text-black";
+  
 
   const roundedClasses =
     radius === "Hover" ?
@@ -61,13 +77,11 @@ const Button: React.FC<ButtonProps> = ({
       typography === "Large Display" ?
         "text-xl" :
         "text-base";
-  const colorModeClasses =
-    colorMode === "Auto (Dark)" ?
-      "dark" :
-      "";
+ 
+const appearanceClasses = getAppearanceClasses(appearance, colorMode);
   return (
     <button
-      className={`${colorModeClasses} ${typographyClasses} ${statusClasses} ${roundedClasses} ${sizeClasses} ${appearanceClasses} rounded-lg`}
+      className={`${typographyClasses} ${statusClasses} ${roundedClasses} ${sizeClasses} ${appearanceClasses} rounded-lg`}
       style={{
         backgroundColor: backgroundColor || undefined,
       }}
