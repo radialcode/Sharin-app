@@ -1,3 +1,4 @@
+import { TEXT_TYPE } from "@/utils/constant";
 import Image from "next/image";
 import React from "react";
 
@@ -16,10 +17,12 @@ export interface CardProps {
   titleClassName?: string;
   imgClassName?: string;
   priceClassName?: string;
-}
+  colorMode?: 'light' | 'dark';
 
+}
 const Card: React.FC<CardProps> = ({
   card,
+  colorMode= TEXT_TYPE.LIGHT,
   className = "rounded-lg flex flex-col max-sm:justify-center max-lg:items-center group",
   subCardClassName = "rounded-2xl border border-solid border-[#D9D9D9] max-w-[189px] size-[189px] max-sm:size-[unset] relative flex justify-center items-center bg-[#F1F1F1] group-hover:shadow-[0_1px_2px_rgba(0,0,0,0.15)] transition-shadow duration-300",
   discountClassName = `absolute top-2 left-2 bg-white text-black flex items-center gap-1.5 text-sm font-semibold px-2 py-1 rounded-full  ${Number(
@@ -39,8 +42,8 @@ const Card: React.FC<CardProps> = ({
   return (
     <>
       <div className={className}>
-        <div className={subCardClassName}>
-          <span className={discountClassName}>
+        <div className={`${subCardClassName} ${colorMode=== TEXT_TYPE.DARK?'bg-[#010101]!':''} ` }>
+          <span className={`${discountClassName} ${colorMode=== TEXT_TYPE.DARK?'text-[#f1f100]! bg-[#f1f1f1]/30! border-transparent!':''}`}>
             <span>
               {Number(
                 card.discount
@@ -69,8 +72,8 @@ const Card: React.FC<CardProps> = ({
           </span>
           <Image width={189} height={189} src={card.imgSrc} alt={card.title} className={imgClassName} />
         </div>
-        <h3 className={titleClassName}>{card.title}</h3>
-        <p className={priceClassName}>{card.price}</p>
+        <h3 className={`${titleClassName} ${colorMode=== TEXT_TYPE.DARK?'text-[#f1f100]!':''}`}>{card.title}</h3>
+        <p className={`${priceClassName} ${colorMode=== TEXT_TYPE.DARK?'text-[#f1f100]!':''}`}>{card.price}</p>
       </div>
     </>
   );
