@@ -1,3 +1,4 @@
+import Icon from "@/components/common/Icon";
 import { TEXT_TYPE } from "@/utils/constant";
 import Image from "next/image";
 import React from "react";
@@ -18,10 +19,12 @@ export interface CardProps {
   imgClassName?: string;
   priceClassName?: string;
   colorMode?: 'light' | 'dark';
+  isSelected?: boolean;
 
 }
 const Card: React.FC<CardProps> = ({
   card,
+  isSelected,
   colorMode= TEXT_TYPE.LIGHT,
   className = "rounded-lg flex flex-col max-sm:justify-center max-lg:items-center group",
   subCardClassName = "rounded-2xl border border-solid border-[#D9D9D9] max-w-[189px] size-[189px] max-sm:size-[unset] relative flex justify-center items-center bg-[#F1F1F1] group-hover:shadow-[0_1px_2px_rgba(0,0,0,0.15)] transition-shadow duration-300",
@@ -71,6 +74,9 @@ const Card: React.FC<CardProps> = ({
             {card.discount}
           </span>
           <Image width={189} height={189} src={card.imgSrc} alt={card.title} className={imgClassName} />
+        { isSelected && <div className="bg-[#FFE943] absolute bottom-3 right-3 z-10 size-10 min-w-10 flex items-center justify-center rounded-2xl">
+            <Icon name="tick"/>
+          </div>}
         </div>
         <h3 className={`${titleClassName} ${colorMode=== TEXT_TYPE.DARK?'text-[#f1f100]!':''}`}>{card.title}</h3>
         <p className={`${priceClassName} ${colorMode=== TEXT_TYPE.DARK?'text-[#f1f100]!':''}`}>{card.price}</p>
