@@ -27,3 +27,8 @@ body {
 .card-container::-webkit-scrollbar-thumb {
   background: transparent; 
 }
+
+button{
+  cursor: pointer;
+  transition: all .3 linear;
+}

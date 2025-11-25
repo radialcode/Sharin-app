@@ -17,7 +17,7 @@ const Button: React.FC<ButtonProps> = ({
   text = "Button",
   appearance = "Subdued",
   size = "MD",
-  radius = "Auto (Default)",
+  radius = "Default",
   status = "Default",
   leftIcon = false,
   rightIcon = false,
@@ -38,13 +38,13 @@ const Button: React.FC<ButtonProps> = ({
     appearance === "Fill"
       ? "bg-black text-white"
       : appearance === "Subdued"
-        ? "bg-white text-black"
+        ? "bg-[#F1F1F1] text-black"
         : appearance === "Ghost" ?
           "bg-white text-black" :
           appearance === "Critical" ?
             "text-white bg-[#FC351B]"
             : appearance === "Accent" ?
-              "text-black bg-[#FFE943]"
+              "text-black bg-transparent hover:bg-black/10"
               : "bg-white text-black";
 
   const roundedClasses =
@@ -74,7 +74,7 @@ const Button: React.FC<ButtonProps> = ({
       false;
   return (
     <button
-      className={`${colorModeClasses} ${typographyClasses} ${statusClasses} ${roundedClasses} ${sizeClasses} ${appearanceClasses} w-full flex font-fk-screamer items-center justify-center gap-2`}
+      className={`${colorModeClasses} ${typographyClasses} ${statusClasses} ${roundedClasses} ${sizeClasses} ${appearanceClasses} w-full flex font-black hover:opacity-75 tracking-tighter  items-center font-inter justify-center gap-2 `}
       style={{
         backgroundColor: backgroundColor || undefined,
       }}

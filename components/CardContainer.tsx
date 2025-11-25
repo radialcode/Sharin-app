@@ -1,6 +1,6 @@
-import React from "react";
-import Button from "../stories/components/Button";
-import Card from "../stories/components/Card";
+
+import Card from "@/stories/ components/Card";
+import { Button } from "@/stories/Button";
 import { CARD_DEFAULTS } from "../utils/helper";
 
 const CardContainer = () => {
@@ -19,14 +19,14 @@ const CardContainer = () => {
               <div className="overflow-y-auto card-container overflow-x-hidden h-full">
                 <div className="grid grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1 gap-4 gap-y-6">
                   {CARD_DEFAULTS.map((card, index) => (
-                    <Card key={index} card={card} />
+                    <Card badge badgeSize="MD 40"  key={index} card={card} />
                   ))}
                 </div>
-                <div className="absolute w-full bottom-0 left-0">
+                <div className="absolute w-full bottom-0 z-20 left-0">
                   <div className="bg-[linear-gradient(180deg,rgba(255,255,255,0)_0%,#ffffff_100%)] pointer-events-none w-full h-20"></div>
                   <div className="bg-white flex w-full gap-2 pt-3 flex-col">
-                    <Button text="Salta" variant="primary" />
-                    <Button text="Indietro"  variant="secondary" />
+                    <Button text="Salta" size="MD 40" radius="Default" appearance="Subdued" />
+                    <Button text="Indietro" size="MD 40"  appearance="Accent" />
                   </div>
                 </div>
               </div>

@@ -64,7 +64,7 @@ export const Primary: Story = {
     rightIcon: false,
     backgroundColor: "",
     colorMode: "Auto (Light)",
-    radius: "Auto (Default)",
+    radius: "Default",
     typography: "Auto (Desktop)",
   },
 };
