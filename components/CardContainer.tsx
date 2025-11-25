@@ -1,7 +1,7 @@
 
 import Card from "@/stories/ components/Card";
-import { Button } from "@/stories/Button";
 import { CARD_DEFAULTS } from "../utils/helper";
+import Button from "@/stories/ components/Button";
 
 const CardContainer = () => {
   return (
