@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import Button from "./Button";
-import { TEXT_TYPE } from "@/utils/constant";
 
 const meta = {
   title: "Components/Button",
@@ -8,15 +7,16 @@ const meta = {
   parameters: {
     layout: "centered",
   },
+
   argTypes: {
     // -------------- UI Controls --------------
     appearance: {
       control: "select",
-      options: ["Subdued", "Filled", "Outline"],
+      options: ["Fill", "Subdued", "Ghost", "Critical", "Accent", "On color"],
     },
     size: {
       control: "select",
-      options: ["SM", "MD", "LG", "XL"],
+      options: ["SM 32", "MD 40", "LG 48"],
     },
     status: {
       control: "select",
@@ -33,15 +33,15 @@ const meta = {
     // -------------- Variable Mode --------------
     colorMode: {
       control: "inline-radio",
-      options: [TEXT_TYPE.LIGHT, TEXT_TYPE.DARK],
+      options: ["light", "Dark"],
     },
     radius: {
       control: "select",
-      options: ["Auto (Default)", "Rounded", "Square"],
+      options: ["Default", "Full",],
     },
     typography: {
       control: "select",
-      options: ["Auto (Desktop)", "Mobile", "Large Display"],
+      options: ["Auto (Desktop)", "Desktop", "Tablet", "Mobile"],
     },
 
     // Background color
@@ -58,12 +58,12 @@ export const Primary: Story = {
   args: {
     text: "Salta",
     appearance: "Subdued",
-    size: "LG",
+    size: "LG 48",
     status: "Default",
     leftIcon: false,
     rightIcon: false,
     backgroundColor: "",
-    colorMode: TEXT_TYPE.LIGHT,
+    colorMode: "Auto (Light)",
     radius: "Auto (Default)",
     typography: "Auto (Desktop)",
   },

@@ -1,37 +1,18 @@
-import { TEXT_TYPE } from "@/utils/constant";
+import Icon from "@/components/common/Icon";
 
 export interface ButtonProps {
   text?: string;
-  appearance?: "Subdued" | "Filled" | "Outline";
-  size?: "SM" | "MD" | "LG" | "XL";
+  appearance?: "Subdued" | "Fill" | "Ghost" | "Critical" | "Accent";
+  size?: "SM 32" | "MD 40" | "LG 48";
   status?: "Default" | "Hover" | "Pressed" | "Focus";
   leftIcon?: boolean;
   rightIcon?: boolean;
   backgroundColor?: string;
+  colorMode?: string;
   radius?: string;
   typography?: string;
-  colorMode?: TEXT_TYPE.LIGHT | TEXT_TYPE.DARK
 }
-const getAppearanceClasses = (appearance: string, colorMode: string) => {
-  const isDark = colorMode === TEXT_TYPE.DARK;
 
-  switch (appearance) {
-    case "Filled":
-      return isDark
-        ? "bg-white text-black"    
-        : "bg-black text-white";
-
-    case "Outline":
-      return isDark
-        ? "border border-white text-white" 
-        : "border border-black text-black";
-
-    default: 
-      return isDark
-        ? "bg-gray-700 text-white"  
-        : "bg-gray-200 text-black"; 
-  }
-};
 const Button: React.FC<ButtonProps> = ({
   text = "Button",
   appearance = "Subdued",
@@ -42,25 +23,34 @@ const Button: React.FC<ButtonProps> = ({
   rightIcon = false,
   backgroundColor,
   typography,
-  colorMode=TEXT_TYPE.LIGHT
+  colorMode
 }) => {
   const sizeClasses =
-    size === "SM"
+    size === "SM 32"
       ? "px-3 py-1 text-sm"
-      : size === "LG"
+      : size === "MD 40"
         ? "px-5 py-3 text-lg"
-        : size === "XL"
+        : size === "LG 48"
           ? "px-6 py-4 text-xl"
           : "px-4 py-2 text-base";
 
-  
+  const appearanceClasses =
+    appearance === "Fill"
+      ? "bg-black text-white"
+      : appearance === "Subdued"
+        ? "bg-white text-black"
+        : appearance === "Ghost" ?
+          "bg-white text-black" :
+          appearance === "Critical" ?
+            "text-white bg-[#FC351B]"
+            : appearance === "Accent" ?
+              "text-black bg-[#FFE943]"
+              : "bg-white text-black";
 
   const roundedClasses =
-    radius === "Hover" ?
-      "rounded-full" :
-      radius === "Square" ?
-        "rounded-none" :
-        "rounded-md";
+    radius === "Default" ?
+      "rounded-lg" :
+      "rounded-[100px]";
 
   const statusClasses =
     status === "Hover" ?
@@ -77,18 +67,21 @@ const Button: React.FC<ButtonProps> = ({
       typography === "Large Display" ?
         "text-xl" :
         "text-base";
- 
-const appearanceClasses = getAppearanceClasses(appearance, colorMode);
+
+  const colorModeClasses =
+    colorMode === "dark" ?
+      true :
+      false;
   return (
     <button
-      className={`${typographyClasses} ${statusClasses} ${roundedClasses} ${sizeClasses} ${appearanceClasses} rounded-lg`}
+      className={`${colorModeClasses} ${typographyClasses} ${statusClasses} ${roundedClasses} ${sizeClasses} ${appearanceClasses} w-full flex font-fk-screamer items-center justify-center gap-2`}
       style={{
         backgroundColor: backgroundColor || undefined,
       }}
     >
-      {leftIcon && <span>⬅</span>}
+      {leftIcon && <Icon name="search"/>}
       {text}
-      {rightIcon && <span>➡</span>}
+      {rightIcon && <Icon name="moveRight"/>}
     </button>
   );
 };
