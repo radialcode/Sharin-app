@@ -6,7 +6,7 @@ import React from "react";
 export interface CardData {
   title: string;
   imgSrc: string;
-  hoverImage: string;
+  imgHover: string;
   price: string;
   discount: string;
   description?: string;
@@ -68,7 +68,7 @@ const Card: React.FC<CardProps> = ({
   color = TEXT_TYPE.LIGHT,
   className = "rounded-lg flex flex-col max-sm:justify-center max-lg:items-center group",
   subCardClassName = "rounded-2xl  border border-solid border-[#D9D9D9] max-w-[189px] size-[189px] max-sm:size-[unset] relative flex justify-center items-center bg-[#F1F1F1] group-hover:shadow-[0_1px_2px_rgba(0,0,0,0.15)] transition-shadow duration-300",
-  discountClassName = `absolute top-2 px-2 py-1 left-2  flex items-center gap-1 font-semibold  rounded-full  ${Number(
+  discountClassName = `absolute top-2 px-2 py-1 z-10 left-2  flex items-center gap-1 font-semibold  rounded-full  ${Number(
     card.discount
       .replace("Guadagna €", "")
       .replace(/\./g, "")
@@ -132,12 +132,12 @@ const Card: React.FC<CardProps> = ({
     default: "bg-red-500 text-white",
   };
   const buttonStatusClass = {
-    hover: "bg-[#d4d4d4]! text-black",
+    hover: "bg-[#d4d4d4]! text-black!",
     focus: color === TEXT_TYPE.DARK ? "outline outline-white" : "outline outline-black",
     loading: "",
-    disable: "group-hover:!opacity-50",
-    default: "bg-white text-black",
-    active: "bg-[#d4d4d4]! text-black",
+    disable: status==='hover'? "opacity-50!":"",
+    default: "",
+    active: "bg-[#d4d4d4]! text-black!",
   };
   const bgBadge = badgeBgClasses[badgeType] || badgeBgClasses.default;
   const statusFav = favoriteStatusClass[favoriteStatus] || favoriteStatusClass.default;
@@ -175,15 +175,15 @@ const Card: React.FC<CardProps> = ({
             {card.discount}
             {badgeRightIcon && <Icon name="eye" />}
           </span>}
-          <Image width={189} height={189} src={card.imgSrc} alt={card.title} className={imgClassName} />
-          <Image width={400} height={400} src={card.hoverImage} alt={card.title} className='group-hover:opacity-100 group-hover:pointer-events-auto opacity-0 pointer-event-none duration-300 z-[9] absolute inset-0 object-center  object-cover rounded-2xl' />
+          <Image width={189} height={189} src={card.imgSrc} alt={card.title} className={`${imgClassName} ${status==='hover'?'opacity-0! pointer-events-none!':''}`} />
+          <Image width={400} height={400} src={card.imgHover} alt={card.title} className={`group-hover:opacity-100 group-hover:pointer-events-auto opacity-0 pointer-event-none duration-300 z-9 absolute inset-0 object-center  object-cover rounded-2xl ${status==='hover'?'opacity-100! pointer-events-auto!':''}`} />
 
-          <div className="absolute bottom-2 left-0 left-0 z-10 flex gap-1 items-center right-0 mx-2">
-            <button className={`cursor-pointer relative w-full translate-y-5 opacity-0 group-hover:opacity-100 duration-300 left-0 right-0 mx-2 group-hover:translate-y-0 py-2 font-bold  rounded-2xl  hover:bg-white/80 ${sizeButton} ${statusButton} ${appearanceButtonClasses}`}> {buttonStatus === 'loading' ? <Icon className="text-black!" name="loading" /> : <span className="flex items-center justify-center gap-1"> {buttonLeftIcon && <Icon name="search"/>}
+          <div className="absolute bottom-2 left-0 z-10 flex gap-1 items-center right-0 mx-2">
+            <button className={`cursor-pointer relative w-full translate-y-5 opacity-0 group-hover:opacity-100 duration-300 left-0 right-0 mx-2 group-hover:translate-y-0 py-2 font-bold  rounded-2xl  hover:bg-white/80 ${appearanceButtonClasses} ${sizeButton}  ${status==='hover'?'opacity-100 translate-y-0!':''} ${statusButton} `}> {buttonStatus === 'loading' ? <Icon name="loading" /> : <span className="flex items-center justify-center gap-1"> {buttonLeftIcon && <Icon name="search"/>}
                   {buttonText}
                   {buttonRightIcon && <Icon className="rotate-90" name="moveRight"/>}</span>}</button>
             {favorite && <div className={`bg-red-500  flex items-center justify-center rounded-lg ${sizeFavorite} ${statusFav}`}>
-              {favoriteStatus === 'hover' && <div className="bg-black py-2 px-2 !leading-[100%] text-white rounded-md absolute -top-[25px] text-[10px] text-nowrap font-semibold -transalte-y-1/2 flex flex-col items-center justify-center">
+              {favoriteStatus === 'hover' && <div className="bg-black py-2 px-2 leading-[100%]! text-white rounded-md absolute -top-[25px] text-[10px] text-nowrap font-semibold -transalte-y-1/2 flex flex-col items-center justify-center">
 
                 <p className="relative">Rimuovi dai preferiti
                   <span className="w-1 h-1 min-w-1 bg-black rotate-45 absolute -bottom-3 left-1/2 -translate-1/2"></span>
