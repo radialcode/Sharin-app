@@ -18,6 +18,14 @@ const config: StorybookConfig = {
   },
   "staticDirs": [
     "../public"
-  ]
+  ],
+  webpackFinal: async (config) => {
+    config.module.rules.push({
+      test: /\.(png|jpg|jpeg|gif|svg)$/i,
+      type: 'asset'
+    });
+
+    return config;
+  },
 };
 export default config;
