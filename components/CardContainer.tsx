@@ -1,7 +1,7 @@
-import Button from "@/stories/ components/Button";
-import Card from "@/stories/ components/Card";
-import { CARD_DEFAULTS } from "@/utils/helper";
 import React from "react";
+import Button from "../stories/components/Button";
+import Card from "../stories/components/Card";
+import { CARD_DEFAULTS } from "../utils/helper";
 
 const CardContainer = () => {
   return (
