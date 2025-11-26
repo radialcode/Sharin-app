@@ -1,7 +1,8 @@
-import React from "react";
-import Button from "../stories/components/Button";
-import Card from "../stories/components/Card";
+
+import Card from "@/stories/ components/Card";
 import { CARD_DEFAULTS } from "../utils/helper";
+import Button from "@/stories/ components/Button";
+
 
 const CardContainer = () => {
   return (
@@ -17,7 +18,7 @@ const CardContainer = () => {
           <div className="relative pb-5">
             <div className="h-[550px] max-md:h-[375px] overflow-hidden ">
               <div className="overflow-y-auto card-container overflow-x-hidden h-full">
-                <div className="grid grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1 gap-4 gap-y-6">
+                <div className="grid grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1 gap-4 gap-y-6 py-32">
                   {CARD_DEFAULTS.map((card, index) => (
                     <Card badge badgeSize="MD 40"  key={index} card={card} />
                   ))}
