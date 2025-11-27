@@ -79,9 +79,9 @@ const Button: React.FC<ButtonProps> = ({
         backgroundColor: backgroundColor || undefined,
       }}
     >
-      {leftIcon && <Icon name="search"/>}
+      {leftIcon && <Icon name="search" />}
       {text}
-      {rightIcon && <Icon name="moveRight"/>}
+      {rightIcon && <Icon name="moveRight" />}
     </button>
   );
 };

@@ -40,7 +40,7 @@ export interface CardProps {
   buttonLeftIcon?: boolean
   buttonRightIcon?: boolean
   buttonText?: string
-   buttonAppearance?: "Subdued" | "Fill" | "Ghost" | "Critical" | "Accent" |"on color";
+  buttonAppearance?: "Subdued" | "Fill" | "Ghost" | "Critical" | "Accent" | "on color";
 
 }
 const Card: React.FC<CardProps> = ({
@@ -98,7 +98,7 @@ const Card: React.FC<CardProps> = ({
   const sizeFavorite =
     favoriteSize === "MD 40"
       ? "size-10 min-w-10" : "size-8 min-w-8";
-       const appearanceButtonClasses =
+  const appearanceButtonClasses =
     buttonAppearance === "Fill"
       ? "bg-black! text-white!"
       : buttonAppearance === "Subdued"
@@ -135,7 +135,7 @@ const Card: React.FC<CardProps> = ({
     hover: "bg-[#d4d4d4]! text-black!",
     focus: color === TEXT_TYPE.DARK ? "outline outline-white" : "outline outline-black",
     loading: "",
-    disable: status==='hover'? "opacity-50!":"",
+    disable: status === 'hover' ? "opacity-50!" : "",
     default: "",
     active: "bg-[#d4d4d4]! text-black!",
   };
@@ -175,13 +175,13 @@ const Card: React.FC<CardProps> = ({
             {card.discount}
             {badgeRightIcon && <Icon name="eye" />}
           </span>}
-          <Image width={189} height={189} src={card.imgSrc} alt={card.title} className={`${imgClassName} ${status==='hover'?'opacity-0! pointer-events-none!':''}`} />
-          <Image width={400} height={400} src={card.imgHover} alt={card.title} className={`group-hover:opacity-100 group-hover:pointer-events-auto opacity-0 pointer-event-none duration-300 z-9 absolute inset-0 object-center  object-cover rounded-2xl ${status==='hover'?'opacity-100! pointer-events-auto!':''}`} />
+          <Image width={189} height={189} src={card.imgSrc} alt={card.title} className={`${imgClassName} ${status === 'hover' ? 'opacity-0! pointer-events-none!' : ''}`} />
+          <Image width={400} height={400} src={card.imgHover} alt={card.title} className={`group-hover:opacity-100 group-hover:pointer-events-auto opacity-0 pointer-event-none duration-300 z-9 absolute inset-0 object-center  object-cover rounded-2xl ${status === 'hover' ? 'opacity-100! pointer-events-auto!' : ''}`} />
 
           <div className="absolute bottom-2 left-0 z-10 flex gap-1 items-center right-0 mx-2">
-            <button className={`cursor-pointer relative w-full translate-y-5 opacity-0 group-hover:opacity-100 duration-300 left-0 right-0 mx-2 group-hover:translate-y-0 py-2 font-bold  rounded-2xl  hover:bg-white/80 ${appearanceButtonClasses} ${sizeButton}  ${status==='hover'?'opacity-100 translate-y-0!':''} ${statusButton} `}> {buttonStatus === 'loading' ? <Icon name="loading" /> : <span className="flex items-center justify-center gap-1"> {buttonLeftIcon && <Icon name="search"/>}
-                  {buttonText}
-                  {buttonRightIcon && <Icon className="rotate-90" name="moveRight"/>}</span>}</button>
+            <button className={`cursor-pointer relative w-full translate-y-5 opacity-0 group-hover:opacity-100 duration-300 left-0 right-0 mx-2 group-hover:translate-y-0 py-2 font-bold  rounded-2xl  hover:bg-white/80 ${appearanceButtonClasses} ${sizeButton}  ${status === 'hover' ? 'opacity-100 translate-y-0!' : ''} ${statusButton} `}> {buttonStatus === 'loading' ? <Icon name="loading" /> : <span className="flex items-center justify-center gap-1"> {buttonLeftIcon && <Icon name="search" />}
+              {buttonText}
+              {buttonRightIcon && <Icon className="rotate-90" name="moveRight" />}</span>}</button>
             {favorite && <div className={`bg-red-500  flex items-center justify-center rounded-lg ${sizeFavorite} ${statusFav}`}>
               {favoriteStatus === 'hover' && <div className="bg-black py-2 px-2 leading-[100%]! text-white rounded-md absolute -top-[25px] text-[10px] text-nowrap font-semibold -transalte-y-1/2 flex flex-col items-center justify-center">
 
