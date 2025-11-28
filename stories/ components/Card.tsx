@@ -78,8 +78,8 @@ const Card: React.FC<CardProps> = ({
     ? "!bg-[#FFE943]"
     : ""
   }`,
-  titleClassName = "text-lg font-black text-black mt-2 !mb-0 max-lg:text-center leading-[100%]",
-  imgClassName = "w-full mx-auto object-center h-auto object-contain rounded-2xl group-hover:opacity-0 group-hover:pointer-events-none opacity-100 pointer-event-auto duration-300",
+  titleClassName = "text-lg font-black text-black mt-2 !mb-0 max-lg:text-center leading-[100%] max-md:max-w-[187px]",
+  imgClassName = " mx-auto object-bottom  object-contain rounded-2xl group-hover:opacity-0 group-hover:pointer-events-none opacity-100 pointer-event-auto duration-300 w-[187px] h-[187px]",
   priceClassName = "text-sm font-medium text-[#767676] mt-1",
 
 }) => {
